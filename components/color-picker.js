@@ -6,7 +6,7 @@ const RGBInput = ({ label, value, onChange, marginBottom }) => (
   <Form.Item
     label={label}
     rules={[{ type: 'integer', required: true, min: 0, max: 255 }]}
-    style={{ marginBottom: marginBottom || undefined }}
+    style={{ marginBottom: marginBottom == null ? undefined : marginBottom }}
   >
     <InputNumber
       min={0}

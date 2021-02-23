@@ -1,24 +1,17 @@
-import { Form, Input } from 'antd';
-import ColorPicker from '../components/color-picker';
+import ColorPalette from '../components/color-palette';
 
 
 const Home = () => {
-  const [form] = Form.useForm();
-
   return (
-    <Form
-      name="colorpicker"
-      form={form}
-      initialValues={{ color: { red: 0, green: 0, blue: 0 } }}
-      onBlur={() => form.submit()}
-      onFinish={(values) => console.log(values)}
-      requiredMark={false}
-    >
-      <Form.Item name="color">
-        <ColorPicker />
-      </Form.Item>
-      <Form.Item hidden><Input type="submit" /></Form.Item>
-    </Form>
+    <div style={{ margin: 20 }}>
+      <ColorPalette
+        values={
+          [0,1,2,3,4].map(c => ({ [c]: { red: 0, green: 0, blue: 0 } }))
+          .reduce((a,b) => ({...a, ...b}))
+        }
+        onSave={(palette) => console.log(palette)}
+      />
+    </div>
   );
 };
 
