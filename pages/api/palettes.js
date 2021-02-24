@@ -11,7 +11,7 @@ export default async (req, res) => {
     await knex("palettes")
       .where({ id: req.body.id })
       .update({
-        name: 'TODO',
+        name: req.body.name,
         color0: req.body.color0,
         color1: req.body.color1,
         color2: req.body.color2,

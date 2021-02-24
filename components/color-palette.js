@@ -15,6 +15,10 @@ const ColorPalette = ({ values, onSave }) => {
       onFinish={(values) => onSave(values)}
       requiredMark={false}
     >
+      <Form.Item name="name">
+        <Input />
+      </Form.Item>
+
       {[0,1,2,3,4].map(c => (
         <Form.Item key={`color${c.toString()}`} name={`color${c.toString()}`}>
           <ColorPicker />
