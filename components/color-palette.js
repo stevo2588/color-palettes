@@ -1,9 +1,11 @@
 import { Button, Form, Input } from 'antd';
+import { useEffect } from 'react';
 import ColorPicker from '../components/color-picker';
 
 
 const ColorPalette = ({ values, onSave }) => {
   const [form] = Form.useForm();
+  useEffect(() => form.resetFields(), [values]);
 
   return (
     <Form
@@ -14,7 +16,7 @@ const ColorPalette = ({ values, onSave }) => {
       requiredMark={false}
     >
       {[0,1,2,3,4].map(c => (
-        <Form.Item key={c.toString()} name={c.toString()}>
+        <Form.Item key={`color${c.toString()}`} name={`color${c.toString()}`}>
           <ColorPicker />
         </Form.Item>
       ))}
