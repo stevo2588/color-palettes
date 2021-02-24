@@ -71,6 +71,7 @@ const Home = () => {
                   <Button danger onClick={async () => {
                     await axios.delete("/api/palettes", { data: { id: item.id } });
                     setPalettes(palettes.filter(p => p.id !== item.id ));
+                    if (item.id === activePalette.id) setActivePalette(null);
                   }}>delete</Button>,
                 ]}
               >
